@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- 让IE浏览器以IE最高的内核渲染-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<!-- 视口为设备宽度，并禁止缩放 -->
+	<meta name="viewport" content="width=device-width,user-scalable=no" />
+	<!-- 把手机端的数组不自动识别为拨号链接 -->
+	<meta name="format-detection" content="telephone=no">
+	<title>牛哥邀你来测一测你的新年红包指数！</title>
+	<script src="js/rootfont.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+	<!-- 页面初始化 loading -->
+	<div id="modal-bg" class="modal-bg"></div>
+	<div id="modal-img" class="modal-img">
+		<img src="images/loading.gif" />
+	</div>
+
+	<!-- 透明遮罩层 选项只能单击一次 -->
+	<div class="modal" id="modal"></div>
+
+	<!--音乐图片-->
+	<div class="music" id="music"> </div>
+
+	<!-- 页面一  首页 -->
+	<div class="page" id="page1">
+		<div class="bg"></div>
+		<div class="left" style="animation: fadeInLeft 1s ease;"></div>
+		<div class="right" style="animation: fadeInRight 1s ease;"></div>
+		<div class="top">
+			<div class="logo"></div>
+		</div>
+		<div class="gz" id="gz"></div>
+		<div class="gz-modal" id="gzModal"></div>
+		<div class="title"></div>
+		<div class="content" style="animation: flipInY 1.5s ease 1.2s 1 both;">
+			<div class="start">
+				<img class="button" src="images/p1_button.png" alt="" id="statr">
+			</div>
+		</div>
+	</div>
+	<!-- 页面2到3 三个答题的页面   -->
+	<div class="page answerPage" id="page2">
+		<div class="bg"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="top1">
+			<div class="logo"></div>
+		</div>
+		<div class="problem">
+			<div class="head">
+				<span class="number">Q1</span>
+				<span class="title">今天就是大年初一，美美的睡了一觉的你，早上起来洗漱之后的第一件事是做什么？</span>
+			</div>
+			<div class="content">
+				<div class="answer " id="answerOption1A">
+					<span class="option">A.</span>
+					<span class="text">掏出手机，拍一张美美哒自拍，转发到朋友圈，配文：“新年快乐”</span>
+				</div>
+				<div class="answer" id="answerOption1B">
+					<span class="option">B.</span>
+					<span class="text">默默的打开手机，静静的观望各种微信群有没有红包</span>
+				</div>
+				<div class="answer" id="answerOption1C">
+					<span class="option">C.</span>
+					<span class="text">轻轻的敲开父母的房门，给父母拜年</span>
+				</div>
+			</div>
+			<div class="footer">
+				<img src="images/pro1_button.png" class="submit" id="submit1">
+			</div>
+		</div>
+	</div>
+	<div class="page answerPage " id="page3">
+		<div class="bg"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="top2">
+			<div class="logo"></div>
+		</div>
+		<div class="problem">
+			<div class="head">
+				<span class="number">Q2</span>
+				<span class="title">过年的时候，当你的亲朋戚友来到你家拜访，你会怎么做呢？</span>
+			</div>
+			<div class="content">
+				<div class="answer" id="answerOption2A">
+					<span class="option">A.</span>
+					<span class="text">自己默默地走回房间玩手机</span>
+				</div>
+				<div class="answer" id="answerOption2B">
+					<span class="option">B.</span>
+					<span class="text">礼貌性地打声招呼之后，就坐在角落里看电视</span>
+				</div>
+				<div class="answer" id="answerOption2C">
+					<span class="option">C.</span>
+					<span class="text">很热情地给亲朋戚友送上一杯椰牛椰子汁，并跟他们一起开心地聊天</span>
+				</div>
+			</div>
+			<div class="footer">
+				<img src="images/pro2_button.png" class="submit" id="submit2">
+			</div>
+		</div>
+	</div>
+	<div class="page answerPage " id="page4">
+		<div class="bg"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="top3">
+			<div class="logo"></div>
+		</div>
+		<div class="problem">
+			<div class="head">
+				<span class="number">Q3</span>
+				<span class="title">今天是新年聚餐，来了各种对你“宠爱有加”的三姑六婆，你会怎么做？</span>
+			</div>
+			<div class="content">
+				<div class="answer" id="answerOption3A">
+					<span class="option">A.</span>
+					<span class="text">先发制人，马上去给他们拜个年</span>
+				</div>
+				<div class="answer" id="answerOption3B">
+					<span class="option">B.</span>
+					<span class="text">低调行事，默默的坐在位置上玩手机，将自己存在感减到最低</span>
+				</div>
+				<div class="answer" id="answerOption3C">
+					<span class="option">C.</span>
+					<span class="text">与各位长辈闲话家常，跟他们打成一片</span>
+				</div>
+			</div>
+			<div class="footer">
+				<img src="images/pro3_button.png" class="submit" id="submit3">
+			</div>
+		</div>
+	</div>
+	<!-- 页面5  红包金额显示 -->
+	<div class="page" id="page5">
+		<div class="bg"></div>
+		<div class="logo"></div>
+		<div class="content">
+			<div class="hb">
+				<div class="title">
+					<span>你的新年红包手气</span>
+				</div>
+				<div class="money">20000</div>
+				<div class="operate">
+					<div class="reset" id="reset"></div>
+					<div class="shareWx" id="shareWx"></div> 
+				</div>
+			</div>
+		</div>
+		<div class="present">
+			<div class="lottery" id="lottery"></div>
+			<div class="footer"></div>
+		</div>
+	</div>
+	<div class="share-bg" id="shareBg"></div>
+	<div class="share-icon"></div>
+	<div class="share-modal">
+		<div class="share-content wx">
+			点击右上角，分享活动给好友或朋友圈，成功邀请好友参与，即可<span class="red">再获一次抽奖机会。</span>
+		</div>
+		
+	</div>
+
+	<!-- btz update 20181228-->
+	<div class="page" id="page6">
+		<div class="bg"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="logo"></div>
+		<div class="title"></div>
+		<div class="content">
+			<div class="banner">
+				<!-- <img src="images/noprize1_samll.png" id="noPrize1" style="display:block;" />
+				<img src="images/noprize2_samll.png" id="noPrize2" style="display:block;" />
+				<img src="images/noprize3_samll.png" id="noPrize3" style="display:block;" />
+				<img src="images/yesPrize1_small.png" id="yesPrize1" style="display:block;" />
+				<img src="images/yesPrize2_small.png" id="yesPrize2" style="display:block;" />
+				<img src="images/yesPrize3_small.png" id="yesPrize3" style="display:block;" /> -->
+				<div class="turnplate">
+					<!-- <canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas> -->
+					<div id="wheelcanvas" style="background-image:url(images/turnplate-bg.png);background-size:100% 100%;height: 100%;"></div>
+					<img class="pointer" src="images/turnplate-pointer.png" />
+				</div>
+			</div>
+			<div class="myPrize"></div>
+			<div class="count">您今天还有
+				<b>3</b> 次抽奖机会</div>
+			<div class="people">已有 1 人参与</div>
+		</div>
+	</div>
+
+	<!-- btz update 20181228   恭喜发财 提示-->
+	<div class="dialog tipDialog">
+		<div class="dialog-content">
+			<!-- <div class="content-close" id="close">
+				<img src="images/close.png" alt="">
+			</div> -->
+			<div class="noPrize">
+				<div class="content-info ">
+					<span class="title">请再接再历哦</span>
+					<div class="noPrize1"></div>
+					<div class="noPrize2"></div>
+					<div class="noPrize3"></div>
+				</div>
+				<div class="content-action noBtn" id="action">
+				</div>
+			</div>
+			<div class="yesPrize">
+				<div class="one">
+					<span class="title">恭喜获得一等奖</span>
+					<div class="yesPrize1"></div>
+				</div>
+				<div class="two">
+					<span class="title">恭喜获得二等奖</span>
+					<div class="yesPrize2"></div>
+				</div>
+				<div class="three">
+					<span class="title">恭喜获得三等奖</span>
+					<div class="yesPrize3"></div>
+				</div>
+				<div class="content-action yesBtn" id="prize">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="dialog prizeDialog">
+		<div class="dialog-content">
+			<div class="prize">
+				<span class="title">填写真实信息</span>
+				<div class="item">
+					<label for="name" class="label">收货人</label>
+					<input type="text" class="text name">
+				</div>
+				<div class="item">
+					<label for="phone" class="label">收货人电话</label>
+					<input type="text" class="text phone">
+				</div>
+				<div class="item">
+					<label for="address" class="label">收获地址</label>
+					<input type="text" class="text address">
+				</div>
+				<div class="item content-add">
+					<div class="add" id="prizeSub"></div>
+				</div>
+				<div class="item content-update">
+					<div class="update" id="prizeUpdateSub"></div>
+					<div class="cancel" id="cancel"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 填写信息成功  -->
+	<div class="dialog oKDialog">
+		<div class="dialog-content">
+			<!-- <div class="content-close" id="shut">
+				<img src="images/close.png" alt="">
+			</div> -->
+			<div class="content-info">
+				<span class="title">提交成功</span>
+			</div>
+			<div class="content-action okBtn" id="ok">
+			</div>
+		</div>
+	</div>
+
+	<!-- btz update 20181228   次数用光提示-->
+	<div class="dialog countDialog">
+		<div class="dialog-content">
+			<!-- <div class="content-close" id="countShut">
+				<img src="images/close.png" alt="">
+			</div> -->
+			<div class="content-info countOut">
+				<span class="text">您今天的抽奖次数已用完，明天再约吧。</span>
+			</div>
+			<div class="content-info countNo">
+				<span class="text">用户中奖后无法再获得抽奖机会，您可以进行红包指数测试。</span>
+			</div>
+			<div class="content-action okBtn" id="countOk">
+			</div>
+		</div>
+	</div>
+
+	<!-- btz update 20180104   我的奖品-->
+	<div class="page" id="page7">
+		<div class="bg"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="logo"></div>
+
+		<div class="title"></div>
+		<!-- 沒有中奖纪录的显示 -->
+		<div class="content noDetails">
+			<div class="details" style="display: none">
+				<table border="0" cellspacing="0" border-collapse="collapse" align='center' class="table">
+					<tr>
+						<th style="width: 2.5rem;">中奖时间</th>
+						<th style="width: 4.5rem;">奖品</th>
+					</tr>
+					<tr>
+						<td class="prizeName" colspan="2">暂无中奖信息</td>
+					</tr>
+				</table>
+				<div class="back"></div>
+			</div>
+		</div>
+		<!-- 有中奖纪录的显示 -->
+		<div class="content yesDetails" >
+			<div class="details">
+				<table border="0" cellspacing="0" border-collapse="collapse" align='center' class="table">
+					<tr>
+						<th style="width: 2.5rem;">中奖时间</th>
+						<th style="width: 4.5rem;">奖品</th>
+					</tr>
+					<tr>
+						<td class="time">2019.02.05</td>
+						<td class="prizeName">椰牛椰汁礼盒一只</td>
+					</tr>
+					<tr>
+						<td class="time">2019.02.05</td>
+						<td class="prizeName">苏泊尔电饭煲一台</td>
+					</tr>
+					<tr>
+						<td class="time">2019.02.05</td>
+						<td class="prizeName">科沃斯扫地机器人一台</td>
+					</tr>
+				</table>
+			</div>
+			<div class="info">
+				<div class="group">
+					<div class="text">收货人</div>
+					<div class="control">陈椰牛</div>
+				</div>
+				<div class="group">
+					<div class="text">联系电话</div>
+					<div class="control">13802453554</div>
+				</div>
+				<div class="group">
+					<div class="text">收货地址</div>
+					<div class="control">广东省汕头市龙湖区高新区产业园XXX栋XXX室</div>
+				</div>
+				<div class="updatePrize"></div>
+				<div class="back"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<audio autoplay="true">
+		<source src="audio/happynewyear.mp3" type="audio/mpeg">
+	</audio>
+	<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/awardRotate.js"></script>
+	<script type="text/javascript" src="js/canvas.js"></script>
+</body>
+
+</html>
